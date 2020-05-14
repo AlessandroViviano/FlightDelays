@@ -41,11 +41,24 @@ public class FXMLController {
 
     @FXML
     void doAnalizzaAeroporti(ActionEvent event) {
+    	int x;
+    	try {
+    		x = Integer.parseInt(compagnieMinimo.getText());
+    	}catch(Throwable t) {
+    		txtResult.appendText("Errore nell'input!");
+    		return ;
+    	}
+    	
+    	this.model.creaGrafo(x);
+    	txtResult.appendText("Grafo creato!");
+    	txtResult.appendText("# Vertici: "+this.model.vertexNumber());
+    	txtResult.appendText("# Archi: "+this.model.edgeNumber());
 
     }
 
     @FXML
     void doTestConnessione(ActionEvent event) {
+    	
 
     }
 
